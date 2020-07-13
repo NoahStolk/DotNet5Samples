@@ -16,11 +16,11 @@ namespace DotNet5Samples.TargetTyping.NullCoalescenceExpressions
 
 		public void RunCSharp9()
 		{
-			throw new NotImplementedException("C# 9.0 feature not yet supported...");
 #if TARGET_TYPED_NULL_COALESCENCE_EXPRESSIONS
 			Console.WriteLine(customer ?? supplier);
 			Console.WriteLine(true ? 0 : null);
 #endif
+			throw new NotImplementedException("C# 9.0 feature not yet supported...");
 		}
 	}
 }
