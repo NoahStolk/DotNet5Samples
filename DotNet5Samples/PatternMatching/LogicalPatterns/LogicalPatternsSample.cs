@@ -18,7 +18,7 @@ namespace DotNet5Samples.PatternMatching.LogicalPatterns
 		{
 			foreach (Product product in products)
 				if (!(product is Mouse) && !(product is Keyboard))
-					Console.WriteLine($"{product.GetType().Name} is not a {typeof(Mouse).Name} nor a {typeof(Keyboard).Name}.");
+					Console.WriteLine($"{product.GetType().Name} is not a {nameof(Mouse)} nor a {nameof(Keyboard)}.");
 
 			Console.WriteLine();
 
@@ -38,7 +38,7 @@ namespace DotNet5Samples.PatternMatching.LogicalPatterns
 		{
 			foreach (Product product in products)
 				if (product is not Mouse && product is not Keyboard)
-					Console.WriteLine($"{product.GetType().Name} is not a {typeof(Mouse).Name} nor a {typeof(Keyboard).Name}.");
+					Console.WriteLine($"{product.GetType().Name} is not a {nameof(Mouse)} nor a {nameof(Keyboard)}.");
 
 			Console.WriteLine();
 
