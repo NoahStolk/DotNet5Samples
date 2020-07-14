@@ -2,7 +2,7 @@
 
 public struct Struct
 {
-	public string Name { get; set; }
+	public string Name { get; init; }
 	public int Id { get; init; }
 	
 	public static bool operator ==(Struct left, Struct right)
@@ -26,14 +26,17 @@ public static void Main()
 {
 	Struct struct1 = new Struct
 	{
-		Name = "Name1",
+		Name = "X",
 		Id = 1
 	};
 	
-	Struct struct2 = struct1;
-	struct2.Name = "Name2";
+	Struct struct2 = new Struct
+	{
+		Name = "X",
+		Id = 1
+	};
 	
-	Console.WriteLine(struct2.Equals(struct1)); // False
-	Console.WriteLine(struct2 == struct1); // False
-	Console.WriteLine(ReferenceEquals(struct2, struct1)); // False
+	Console.WriteLine(struct2.Equals(struct1)); // True; value-based equality
+	Console.WriteLine(struct2 == struct1); // True; value-based equality
+	Console.WriteLine(ReferenceEquals(struct2, struct1)); // False; not a reference type
 }
