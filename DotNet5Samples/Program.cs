@@ -11,6 +11,7 @@ namespace DotNet5Samples
 		public static void Main()
 		{
 			Console.WindowWidth = 140;
+			Console.WindowHeight = 40;
 			Console.ForegroundColor = ConsoleColor.White;
 
 			for (; ; )
@@ -20,8 +21,11 @@ namespace DotNet5Samples
 				{
 					ConsoleKey.D0 or ConsoleKey.NumPad0 => () => RunSample<NewExpressionsSample>(),
 					ConsoleKey.D1 or ConsoleKey.NumPad1 => () => RunSample<NullCoalescenceExpressionsSample>(),
-					ConsoleKey.D2 or ConsoleKey.NumPad2 => () => RunSample<LogicalPatternsSample>(),
-					ConsoleKey.D3 or ConsoleKey.NumPad3 => () => RunSample<RelationalPatternsSample>(),
+					ConsoleKey.D2 or ConsoleKey.NumPad2 => () => RunSample<RelationalPatternsSample>(),
+					ConsoleKey.D3 or ConsoleKey.NumPad3 => () => RunSample<LogicalPatternsAndSample>(),
+					ConsoleKey.D4 or ConsoleKey.NumPad4 => () => RunSample<LogicalPatternsOrSample>(),
+					ConsoleKey.D5 or ConsoleKey.NumPad5 => () => RunSample<LogicalPatternsSimpleTypeSample>(),
+					ConsoleKey.D6 or ConsoleKey.NumPad6 => () => RunSample<LogicalPatternsNotSample>(),
 					ConsoleKey.E => () => Environment.Exit(0),
 					_ => () => Console.WriteLine($"No action implemented for {nameof(ConsoleKey)} '{input}'."),
 				};

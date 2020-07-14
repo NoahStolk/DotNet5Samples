@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace DotNet5Samples.PatternMatching.LogicalPatterns
 {
-	public class LogicalPatternsSample : ISample
+	public class LogicalPatternsSimpleTypeSample : ISample
 	{
 		private readonly List<Product> products = new List<Product>
 		{
@@ -17,19 +17,13 @@ namespace DotNet5Samples.PatternMatching.LogicalPatterns
 		public void RunCSharp8()
 		{
 			foreach (Product product in products)
-				if (!(product is Mouse) && !(product is Keyboard))
-					Console.WriteLine($"{product.GetType().Name} is not a {nameof(Mouse)} nor a {nameof(Keyboard)}.");
-
-			Console.WriteLine();
-
-			foreach (Product product in products)
 				Console.WriteLine($"{product.Price * (1 - GetDiscount(product)):0.00}");
 
 			static float GetDiscount(Product product) => product switch
 			{
 				Mouse _ => 0.2f,
 				Monitor _ => 0.15f,
-				null => throw new Exception($"Parameter '{nameof(product)}' cannot be null."),
+				null => throw new ArgumentNullException(nameof(product)),
 				_ => throw new NotImplementedException($"Method '{nameof(GetDiscount)}' does not implement type '{product.GetType().Name}'."),
 			};
 		}
@@ -37,19 +31,13 @@ namespace DotNet5Samples.PatternMatching.LogicalPatterns
 		public void RunCSharp9()
 		{
 			foreach (Product product in products)
-				if (product is not Mouse && product is not Keyboard)
-					Console.WriteLine($"{product.GetType().Name} is not a {nameof(Mouse)} nor a {nameof(Keyboard)}.");
-
-			Console.WriteLine();
-
-			foreach (Product product in products)
 				Console.WriteLine($"{product.Price * (1 - GetDiscount(product)):0.00}");
 
 			static float GetDiscount(Product product) => product switch
 			{
 				Mouse => 0.2f,
 				Monitor => 0.15f,
-				null => throw new Exception($"{nameof(product)} cannot be null."),
+				null => throw new ArgumentNullException(nameof(product)),
 				not null => throw new NotImplementedException($"Method '{nameof(GetDiscount)}' does not implement type '{product.GetType().Name}'."),
 			};
 		}
