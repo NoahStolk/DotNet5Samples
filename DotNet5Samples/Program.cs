@@ -1,5 +1,6 @@
 ﻿using DotNet5Samples.PatternMatching.LogicalPatterns;
 using DotNet5Samples.PatternMatching.RelationalPatterns;
+using DotNet5Samples.SourceGenerators;
 using DotNet5Samples.TargetTyping.NewExpressions;
 using DotNet5Samples.TargetTyping.NullCoalescenceExpressions;
 using System;
@@ -26,6 +27,7 @@ namespace DotNet5Samples
 					ConsoleKey.D4 or ConsoleKey.NumPad4 => () => RunSample<LogicalPatternsOrSample>(),
 					ConsoleKey.D5 or ConsoleKey.NumPad5 => () => RunSample<LogicalPatternsSimpleTypeSample>(),
 					ConsoleKey.D6 or ConsoleKey.NumPad6 => () => RunSample<LogicalPatternsNotSample>(),
+					ConsoleKey.D7 or ConsoleKey.NumPad7 => () => RunSample<SyntaxTreesGeneratorSample>(),
 					ConsoleKey.E => () => Environment.Exit(0),
 					_ => () => Console.WriteLine($"No action implemented for {nameof(ConsoleKey)} '{input}'."),
 				};
