@@ -14,5 +14,5 @@ public static void Main()
 		Id = 1
 	};
 
-	// initOnly.Name = "Name2"; // ERROR: Cannot set property outside of object initializer.
+	initOnly.Name = "Name2"; // ERROR: Cannot set property outside of object initializer.
 }
